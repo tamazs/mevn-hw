@@ -31,8 +31,8 @@ app.get("/", (req, res) => {
     res.send("home page")
 })
 
-//const TodosRoute = require('./routes/Todos');
-//app.use('/todos', TodosRoute)
+const TodosRoute = require('./routes/todos');
+app.use('/todos', TodosRoute)
 
 //start server
 app.listen(3000, () => {
