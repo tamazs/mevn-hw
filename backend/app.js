@@ -13,9 +13,10 @@ app.use(function(req, res, next) {
     next();
 })
 
+require ("dotenv-flow").config();
+
 //DB
-const uri = "mongodb+srv://dbuser:dbuser123456@cluster0.pjyq1zh.mongodb.net/?retryWrites=true&w=majority";
-mongoose.connect(uri, {
+mongoose.connect(process.env.DB_HOST, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
