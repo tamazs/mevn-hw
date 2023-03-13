@@ -1,9 +1,9 @@
-const express = require("express")
-const mongoose = require("mongoose")
-const bodyParser = require("body-parser")
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 
 //create express app
-const app = express()
+const app = express();
 
 //Handle CORS + middleware
 app.use(function(req, res, next) {

@@ -1,15 +1,30 @@
 <template>
     <div>
-        <p>{{ test.name }}</p>
+        <div v-for="item in state.todos" :key="item.author">
+            <h4>{{ item.author }}</h4>
+            <p>{{ item.todo }}</p>
+        </div>
     </div>
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { reactive, onMounted } from 'vue';
 
 
-const test = reactive({
-    name: "Mr Dude"
+const state = reactive({
+    todos: {}
+})
+
+function GetAll() {
+    fetch("http://localhost:3000/todos")
+    .then(res => res.json())
+    .then(data => {
+        state.todos = data
+    })
+}
+
+onMounted(() => {
+    GetAll()
 })
 
 </script>
