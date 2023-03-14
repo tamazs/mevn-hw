@@ -28,11 +28,12 @@ router.get('/get/:id', async (req, res) => {
 
 //Update by id
 router.put('/update/:id', async (req, res) => {
-    const todosUpdate = await Todo.updateOne({
-        // { _id: req.params.id }, { $set: req.body }
-        todo: "Learn nothing",
-        author: "def not me"
-    })
+    const todosUpdate = await Todo.updateOne(
+        { _id: req.params.id }, 
+        //{ $set: req.body }
+        {todo: "Learn nothing",
+        author: "def not me"}
+    )
     res.json(todosUpdate)
 })
 
